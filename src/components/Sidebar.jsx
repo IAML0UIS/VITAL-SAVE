@@ -43,7 +43,7 @@ export const Sidebar = (props) => {
           className="simple-text logo-mini"
         >
           <div className="logo-img">
-            <img src={ logoVitalSave } alt="react-logo" />
+            <img src={ logoVitalSave } alt="VitalSave" />
           </div>
         </a>
         <a href="#"

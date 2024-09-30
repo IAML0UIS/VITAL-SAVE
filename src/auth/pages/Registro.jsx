@@ -20,17 +20,16 @@ export const Registro = () => {
     
   return (
     <>
-        <div className="container-form" >
+        <div className="container-form my-10" >
           <form className="sign-up" onSubmit={ onSubmitLogin }>
             <h2>Registrarse</h2>
             <div className="social-networks">
               <ion-icon name="logo-facebook" />
               <ion-icon name="logo-twitter" />
               <ion-icon name="logo-instagram" />
-              <ion-icon name="logo-google" />
             </div>
             <span>Use su correo electrónico para registrarse</span>
-            <div className="container-input">
+            <div className="container mb-3 container-input">
               <ion-icon name="person-outline" />
               <input 
                 type="text" 
@@ -39,7 +38,7 @@ export const Registro = () => {
                 value={ nombre }
                 onChange={ onInputChange }/>
             </div>
-            <div className="container-input">
+            <div className="container mb-3 container-input">
               <ion-icon name="mail-outline" />
               <input 
                 type="text" 
@@ -48,7 +47,7 @@ export const Registro = () => {
                 value={ email }
                 onChange={ onInputChange } />
             </div>
-            <div className="container-input">
+            <div className="container mb-3 container-input">
               <ion-icon name="lock-closed-outline" />
               <input 
                 type="password" 
@@ -57,7 +56,7 @@ export const Registro = () => {
                 value={ password }
                 onChange={ onInputChange } />
             </div>
-            <button className="button" >REGISTRARSE</button>
+            <button className="button">REGISTRARSE</button>
           </form>
         </div>
     </>

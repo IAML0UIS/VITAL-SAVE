@@ -1,6 +1,7 @@
+import { useDispatch } from "react-redux";
+import { estadoAutenticado, startInicioSesionGoogle } from "../../store/auth/thunks";
 import { useForm } from "../../variables/useForm";
 import { NavLink } from "react-router-dom";
-
 
 const ingresar = {
     email: '',
@@ -11,11 +12,18 @@ const ingresar = {
 export const Login = () => {
 
     const { email, password, onInputChange } = useForm(ingresar);
+    const dispatch = useDispatch()
 
     const onSubmitLogin = (e) => {
         e.preventDefault();
+        dispatch( estadoAutenticado() )
         console.log({email, password})
       };
+
+    const googleInicioSesion = () => {
+      console.log('iniciaste sesion con google')
+      dispatch( startInicioSesionGoogle() );
+    }
 
   return (
     <>
@@ -26,10 +34,9 @@ export const Login = () => {
               <ion-icon name="logo-facebook" />
               <ion-icon name="logo-twitter" />
               <ion-icon name="logo-instagram" />
-              <ion-icon name="logo-google" />
             </div>
             <span>Use su correo y contraseña</span>
-            <div className="container-input">
+            <div className="container mb-3 container-input">
               <ion-icon name="mail-outline" />
               <input 
                 type="text" 
@@ -38,7 +45,7 @@ export const Login = () => {
                 value={ email }
                 onChange={ onInputChange } />
             </div>
-            <div className="container-input">
+            <div className="container mb-3 container-input">
               <ion-icon name="lock-closed-outline" />
               <input 
                 type="password" 
@@ -47,8 +54,11 @@ export const Login = () => {
                 value={ password }
                 onChange={ onInputChange } />
             </div>
-            <NavLink className="password-reset-link">¿Olvidaste tu contraseña?</NavLink>
-            <button className="button">INICIAR SESIÓN</button>
+            <NavLink to="/olvidaste-contra" class="password-reset-link">¿Olvidaste tu contraseña?</NavLink>
+            <div className="button-container">
+              <button className="button" type="submit">INICIAR SESIÓN</button>
+              <button className="button" type="button" onClick={ googleInicioSesion }>GOOGLE<ion-icon name="logo-google"/></button>
+            </div>
           </form>
         </div>
     </>

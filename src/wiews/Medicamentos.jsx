@@ -29,7 +29,7 @@ export const Medicamentos = () => {
                           {medicamentos.informacion}
                         </CardText>
                       </CardBody>
-                      <Button color="dark" className="ms-2">Mas Informacion..</Button>
+                      <Button className="custom-button">Mas Información..</Button>
                     </Card>
                   </CardGroup>
                 </Col>

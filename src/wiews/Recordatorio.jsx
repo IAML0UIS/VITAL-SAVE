@@ -38,7 +38,7 @@ export const Recordatorio = () => {
               <CardBody>
                 <Form onSubmit={ onSubmitRecordatorio }>
                   <Row>
-                    <Col className="px-1" md="6">
+                    <Col className="pr-1" md="6">
                       <FormGroup>
                         <label>Usuario</label>
                         <Input
@@ -137,7 +137,7 @@ export const Recordatorio = () => {
                   <Row>
                     <div className="update ml-auto mr-auto">
                       <Button
-                        className="btn-round"
+                        className="custom-button"
                         color="primary"
                         type="submit"
                       >

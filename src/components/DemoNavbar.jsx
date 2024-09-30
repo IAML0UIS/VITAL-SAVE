@@ -5,16 +5,30 @@ import {
   NavbarToggler,
   NavbarBrand,
   Container,
+  Collapse
 } from "reactstrap";
 
 import routes from "../routes";
+import { useState } from "react";
 
 export const DemoNavbar = (props) => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [dropdownOpen, setDropdownOpen] = React.useState(false);
-  const [color, setColor] = React.useState("transparent");
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    console.log('Buscando:', searchTerm);
+  };
+
+
+
+
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [color, setColor] = useState("transparent");
   const sidebarToggle = React.useRef();
   const location = useLocation();
+
+
   const toggle = () => {
     if (isOpen) {
       setColor("transparent");
@@ -57,6 +71,9 @@ export const DemoNavbar = (props) => {
       sidebarToggle.current.classList.toggle("toggled");
     }
   }, [location]);
+
+
+  
   return (
     
     <Navbar
@@ -85,13 +102,11 @@ export const DemoNavbar = (props) => {
               <span className="navbar-toggler-bar bar3" />
             </button>
           </div>
-          <NavbarBrand href="/">{getBrand()}</NavbarBrand>
+          <NavbarBrand href="/">{getBrand()}
+          </NavbarBrand>
+          <Collapse isOpen={isOpen} navbar className="justify-content-end"></Collapse>
+          <NavbarToggler onClick={toggle}> </NavbarToggler>                   
         </div>
-        <NavbarToggler onClick={toggle}>
-          <span className="navbar-toggler-bar navbar-kebab" />
-          <span className="navbar-toggler-bar navbar-kebab" />
-          <span className="navbar-toggler-bar navbar-kebab" />
-        </NavbarToggler>
       </Container>
     </Navbar>
   );
