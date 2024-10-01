@@ -5,7 +5,7 @@ export const authSlice = createSlice({
    initialState: {
     estado: 'No Autenticado',
     uid: null,
-    displaName: null,
+    displayName: null,
     email: null,
     photoURL: null,
     errorMessage: null

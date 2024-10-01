@@ -54,7 +54,7 @@ export const Login = () => {
                 value={ password }
                 onChange={ onInputChange } />
             </div>
-            <NavLink to="/olvidaste-contra" class="password-reset-link">¿Olvidaste tu contraseña?</NavLink>
+            <NavLink to="/olvidaste-contra" className="password-reset-link">¿Olvidaste tu contraseña?</NavLink>
             <div className="button-container">
               <button className="button" type="submit">INICIAR SESIÓN</button>
               <button className="button" type="button" onClick={ googleInicioSesion }>GOOGLE<ion-icon name="logo-google"/></button>

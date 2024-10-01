@@ -227,15 +227,6 @@ License - nucleoapp.com/license/
     margin-bottom: 15px;
 }
 
-.password-reset-link {
-  color: black; /* Color negro por defecto */
-  text-decoration: none; /* Opcional, para eliminar el subrayado */
-}
-
-.password-reset-link:hover {
-  color: darkblue; /* Cambia el color a azul oscuro en hover */
-}
-
 /* INPUT DEL LOGIN  Y REGISTRO */
 .container-input{
     width: 300px;
@@ -254,10 +245,27 @@ License - nucleoapp.com/license/
 /* Animación al enfocar el input */
 .container-input:hover,
 .container-input:focus-within {
-    background-color: #14059e;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra al hacer hover */
-    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+  background-color: #14059e;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra al hacer focus */
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
 }
+
+.hover-blue:hover {
+  border-color: #14059e !important;
+}
+
+.container-input.error:hover,
+.container-input.error:focus-within {
+  background-color: transparent; /* Cambia el color de fondo al hover si hay error */
+  box-shadow: none; /* Elimina la sombra */
+  transform: none; /* Elimina el efecto de escala */
+}
+
+.container-input.error .form-control {
+  border-color: red !important; /* Cambia el color del borde a rojo */
+}
+
+
 
 .container-input input{
     border: none;
