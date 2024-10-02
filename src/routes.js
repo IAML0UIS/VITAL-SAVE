@@ -8,7 +8,6 @@ import {
   Asistente,
   Recordatorio} from "./wiews";
 
-import { LoginRegistre } from "../src/auth/pages";
 
 
 const routes = [

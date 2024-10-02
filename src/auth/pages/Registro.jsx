@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useForm } from "../../variables/useForm";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { startCreatingUserWithEmailPassword } from "../../store/auth/thunks";
+import { CiWarning } from "react-icons/ci";
 const registro = {
   displayName: '',
   email: '',
@@ -17,16 +18,16 @@ const formValidations = {
 export const Registro = () => {
   const { formState, displayName, email, password, onInputChange, nombreValid, emailValid, passwordValid, isFormValid } = useForm(registro, formValidations);
   const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const { status, errorMessage } = useSelector( state => state.auth);
+  
   const dispatch = useDispatch()
 
   const onSubmitLogin = (e) => {
     e.preventDefault();
     setFormSubmitted(true);
 
-    if (!isFormValid()) {
-      console.log("Formulario no válido");
-      return;
-    }
+    if ( !isFormValid ) return;
     
     dispatch( startCreatingUserWithEmailPassword( formState ) )
   };
@@ -86,8 +87,29 @@ export const Registro = () => {
           />
           {formSubmitted && passwordValid && <div className="invalid-feedback">{passwordValid}</div>}
         </div>
-
-        <button className="button" type="submit">REGISTRARSE</button>
+        { errorMessage && (
+          <div 
+            className="alert alert-danger d-flex align-items-center"  
+            role="alert"
+          >
+            <CiWarning 
+              className="bi flex-shrink-0 me-2" 
+              width="24" 
+              height="24" 
+              role="img" 
+              aria-label="Danger"
+            />
+            <div>
+              <strong>{errorMessage}</strong>
+            </div>
+          </div>
+          )
+        }
+        <button 
+          className="button" 
+          type="submit"
+          // disabled={ isChekingAuthentication } 
+          >Crear Cuenta</button>
       </form>
     </div>
   );

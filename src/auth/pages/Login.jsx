@@ -1,7 +1,8 @@
-import { useDispatch } from "react-redux";
-import { estadoAutenticado, startInicioSesionGoogle } from "../../store/auth/thunks";
+import { useDispatch, useSelector } from "react-redux";
+import {  startInicioSesionGoogle, startloginWithEmailPassword } from "../../store/auth/thunks";
 import { useForm } from "../../variables/useForm";
 import { NavLink } from "react-router-dom";
+import { CiWarning } from "react-icons/ci";
 
 const ingresar = {
     email: '',
@@ -12,17 +13,18 @@ const ingresar = {
 export const Login = () => {
 
     const { email, password, onInputChange } = useForm(ingresar);
+    
     const dispatch = useDispatch()
+    const { status, errorMessage } = useSelector( state => state.auth );
 
     const onSubmitLogin = (e) => {
         e.preventDefault();
-        dispatch( estadoAutenticado() )
-        console.log({email, password})
+        dispatch( startloginWithEmailPassword({email, password}))
       };
 
     const googleInicioSesion = () => {
       console.log('iniciaste sesion con google')
-      dispatch( startInicioSesionGoogle() );
+      dispatch( startInicioSesionGoogle( ) );
     }
 
   return (
@@ -55,6 +57,24 @@ export const Login = () => {
                 onChange={ onInputChange } />
             </div>
             <NavLink to="/olvidaste-contra" className="password-reset-link">¿Olvidaste tu contraseña?</NavLink>
+            { errorMessage && (
+              <div 
+                className="alert alert-danger d-flex align-items-center"  
+                role="alert"
+              >
+                <CiWarning
+                  className="bi flex-shrink-0 me-2" 
+                  width="24" 
+                  height="24" 
+                  role="img" 
+                  aria-label="Danger"
+                />
+                <div>
+                  <strong>{errorMessage}</strong>
+                </div>
+              </div>
+              )
+            }
             <div className="button-container">
               <button className="button" type="submit">INICIAR SESIÓN</button>
               <button className="button" type="button" onClick={ googleInicioSesion }>GOOGLE<ion-icon name="logo-google"/></button>
