@@ -1,9 +1,4 @@
-/*--------------------------------
-
-nucleo-icons Web Font - built using nucleoapp.com
-License - nucleoapp.com/license/
-
--------------------------------- */
+/* nucleo-icons Web Font - built using nucleoapp.com */
 @font-face {
   font-family: 'nucleo-icons';
   src: url("/assets/fonts/nucleo-icons.eot");
@@ -59,64 +54,6 @@ License - nucleoapp.com/license/
     padding-left: 21px; }
   .footer .credits {
     padding-right: 15px; } }
-
-@media screen and (min-width: 992px) {
-  .navbar-collapse {
-    background: none !important; }
-  .navbar .navbar-toggle {
-    display: none; }
-  .navbar-nav .nav-link.profile-photo {
-    padding: 0;
-    margin: 7px 0.7rem; }
-  .section-nucleo-icons .icons-container {
-    margin: 0 0 0 auto; }
-  .dropdown-menu .dropdown-item {
-    color: inherit; }
-  .footer .copyright {
-    float: right;
-    padding-right: 15px; }
-  .sidebar .sidebar-wrapper li.active > a:not([data-toggle="collapse"]):before,
-  .sidebar .sidebar-wrapper li.active > [data-toggle="collapse"] + div .nav li:before {
-    border-right: 17px solid #DDDDDD;
-    border-top: 17px solid transparent;
-    border-bottom: 17px solid transparent;
-    content: "";
-    display: inline-block;
-    position: absolute;
-    right: -16px;
-    opacity: 1;
-    top: 7px;
-    transition: opacity 150ms ease-in; }
-  .sidebar .sidebar-wrapper li.active > a:not([data-toggle="collapse"]):after,
-  .sidebar .sidebar-wrapper li.active > [data-toggle="collapse"] + div .nav li:after {
-    border-right: 17px solid #f4f3ef;
-    border-top: 17px solid transparent;
-    border-bottom: 17px solid transparent;
-    content: "";
-    display: inline-block;
-    position: absolute;
-    right: -17px;
-    opacity: 1;
-    top: 7px;
-    transition: opacity 150ms ease-in; }
-  .sidebar .sidebar-wrapper li.active > [data-toggle="collapse"] + div .nav li a:before, .sidebar .sidebar-wrapper li.active > [data-toggle="collapse"] + div .nav li a:after {
-    top: 0; } }
-
-@media screen and (max-width: 768px) {
-  .card-stats [class*="col-"] .statistics::after {
-    display: none; }
-  .main-panel .content {
-    padding-left: 15px;
-    padding-right: 15px; }
-  .footer nav {
-    display: block;
-    margin-bottom: 5px;
-    float: none; }
-  .landing-page .section-story-overview .image-container:nth-child(2) {
-    margin-left: 0;
-    margin-bottom: 30px; }
-  .card .form-horizontal .col-md-3.col-form-label {
-    text-align: left; } }
 
                                /* Estilos Agregados */
 
