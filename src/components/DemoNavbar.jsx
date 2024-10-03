@@ -29,10 +29,6 @@ export const DemoNavbar = (props) => {
     dispatch( starLogout() );
   }
 
-
-
-
-
   const [isOpen, setIsOpen] = useState(false);
   const [color, setColor] = useState("transparent");
   const sidebarToggle = React.useRef();

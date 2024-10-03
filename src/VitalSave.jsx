@@ -10,9 +10,9 @@ export const VitalSave = () => {
   
   const { status } = useCheckAuth()
 
-  if( status === 'checking') {
-    return <CheckingAuth />
-  }
+  // if( status === 'checking') {
+  //   return <CheckingAuth />
+  // }
 
 
 
