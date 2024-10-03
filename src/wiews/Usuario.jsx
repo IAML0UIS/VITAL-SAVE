@@ -1,7 +1,10 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { Col, CardBody, Card, } from "reactstrap";
 
 export const Usuario = () => {
+
+    const { displayName, photoURL } = useSelector( status => status.auth)
   return (
     <>
         <div className="content">
@@ -13,11 +16,11 @@ export const Usuario = () => {
                 <CardBody>
                     <div className="author">
                         <img
-                        alt="..."
-                        className="avatar border-gray"
-                        src="../src/assets/img/mike.jpg"
+                        alt="NO TIENE FOTO"
+                        className="avatar "
+                        src={ photoURL }
                         />
-                        <h5 className="title">Eder Olivero</h5>
+                        <h5 className="title">{ displayName }</h5>
                     </div>
                     <h6 className=" text-center">
                         <strong>

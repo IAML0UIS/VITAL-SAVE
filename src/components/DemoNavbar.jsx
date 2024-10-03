@@ -5,19 +5,29 @@ import {
   NavbarToggler,
   NavbarBrand,
   Container,
-  Collapse
+  Collapse,
+  Button
 } from "reactstrap";
+import { FaSignOutAlt } from 'react-icons/fa';
 
 import routes from "../routes";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { starLogout } from "../store/auth/thunks";
 
 export const DemoNavbar = (props) => {
   const [searchTerm, setSearchTerm] = useState('');
+  const dispatch = useDispatch()
 
   const handleSearch = (event) => {
     event.preventDefault();
     console.log('Buscando:', searchTerm);
   };
+
+  
+  const onLogout = () => {
+    dispatch( starLogout() );
+  }
 
 
 
@@ -73,6 +83,7 @@ export const DemoNavbar = (props) => {
   }, [location]);
 
 
+
   
   return (
     
@@ -104,7 +115,12 @@ export const DemoNavbar = (props) => {
           </div>
           <NavbarBrand href="/">{getBrand()}
           </NavbarBrand>
-          <Collapse isOpen={isOpen} navbar className="justify-content-end"></Collapse>
+          <Collapse isOpen={isOpen} navbar className="justify-content-end">
+            <Button color="danger" onClick={ onLogout }>
+              <FaSignOutAlt style={{ marginRight: '6px' }} />
+              Logout
+            </Button>
+          </Collapse>
           <NavbarToggler onClick={toggle}> </NavbarToggler>                   
         </div>
       </Container>

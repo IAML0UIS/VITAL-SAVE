@@ -1,33 +1,14 @@
 import { Navigate, Route, Routes } from "react-router"
 import { Admin } from "../src/layouts/Admin";
-import React, { useEffect } from 'react';
 import { LoginRegistre, OlvidasteContra } from "./auth/pages";
-import { useDispatch, useSelector } from "react-redux";
 import { CheckingAuth } from "./ui";
-import { onAuthStateChanged } from "firebase/auth";
-import { firebaseAuth } from "./firebase/config";
-import { login, logout } from "./store/auth/authSlice";
+import { useCheckAuth } from "./variables/useCheckAuth";
 
 
 
 export const VitalSave = () => {
   
-  const { status } = useSelector( state => state.auth);
-
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    onAuthStateChanged( firebaseAuth, async ( user ) => {
-      if( !user ) return useDispatch( logout() );
-
-      const {displayName, email, photoURL, uid } = user;
-      dispatch(login({displayName, email, photoURL, uid}))
-      
-
-    })
-    
-  }, [])
-  
+  const { status } = useCheckAuth()
 
   if( status === 'checking') {
     return <CheckingAuth />
@@ -37,17 +18,23 @@ export const VitalSave = () => {
 
   return (
     <Routes>
-      {/* {
+      {
         (status === 'authenticated') 
-        ?    
-        :   
-      } */}
-        <Route path="/login" element={ <LoginRegistre /> }/>
-        <Route path="/inicio/*" element={ <Admin /> }/>
-        {/* <Route path="*" element={ <Medicamentos /> }/> */}
-        <Route path="/*" element={ <Navigate to="/login" replace/> }/>
-       
-        <Route path="/olvidaste-contra" element={<OlvidasteContra />} />
+        ? (
+          <>
+            {/* Rutas protegidas para usuarios autenticados */}
+            <Route path="/inicio/*" element={ <Admin /> } />  
+            <Route path="/*" element={ <Navigate to="/inicio" replace /> } />
+          </>
+        ) : (
+          <>
+            {/* Rutas públicas para usuarios no autenticados */}
+            <Route path="/login" element={ <LoginRegistre /> } />  
+            <Route path="/olvidaste-contra" element={ <OlvidasteContra /> } />
+            <Route path="/*" element={ <Navigate to="/login" replace /> } />
+          </>
+        )
+      }
     </Routes>
   )
 }
