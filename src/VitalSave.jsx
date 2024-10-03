@@ -1,7 +1,6 @@
 import { Navigate, Route, Routes } from "react-router"
 import { Admin } from "../src/layouts/Admin";
 import { LoginRegistre, OlvidasteContra } from "./auth/pages";
-import { CheckingAuth } from "./ui";
 import { useCheckAuth } from "./variables/useCheckAuth";
 
 
@@ -9,12 +8,6 @@ import { useCheckAuth } from "./variables/useCheckAuth";
 export const VitalSave = () => {
   
   const { status } = useCheckAuth()
-
-  // if( status === 'checking') {
-  //   return <CheckingAuth />
-  // }
-
-
 
   return (
     <Routes>
