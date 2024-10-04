@@ -6,7 +6,8 @@ import {
   Usuario,
   Salud,
   Asistente,
-  Recordatorio} from "./wiews";
+  Recordatorio,
+  InformacionMedicamentos} from "./wiews";
 
 
 
@@ -63,5 +64,6 @@ const routes = [
     component: Usuario,
     layout: "/inicio",
   },
+  
 ];
 export default routes;

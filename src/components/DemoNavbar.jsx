@@ -4,8 +4,9 @@ import routes from "../routes";
 import { useState } from "react";
 import { starLogout } from "../store/auth/thunks";
 import { useLocation } from "react-router-dom";
-import { Navbar, NavbarBrand, Container, Button } from "reactstrap";
+import { Navbar, NavbarBrand, Container, Button, Input } from "reactstrap";
 import { FaSignOutAlt } from 'react-icons/fa';
+
 
 
 
@@ -21,7 +22,6 @@ export const DemoNavbar = (props) => {
   const location = useLocation();
 
 
-  
   const getBrand = () => {
     let brandName = "Default Brand";
     routes.map((prop, key) => {
@@ -68,6 +68,10 @@ export const DemoNavbar = (props) => {
          
         </div>
       </Container>
+        <div>
+            <Input
+            />
+        </div>
       <NavbarBrand href="/">{getBrand()}
           </NavbarBrand>
           <Button color="danger" onClick={ onLogout }>

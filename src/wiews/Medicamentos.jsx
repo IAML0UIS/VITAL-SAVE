@@ -3,7 +3,11 @@ import { medicamento } from '../variables/medicamento'
 import { CardBody, CardTitle, CardText, Card, CardImg, Row, CardGroup, Button, Col } from "reactstrap";
 
 
+
+
+
 export const Medicamentos = () => {
+ 
   return (
     <>
         <div className="content">
@@ -29,7 +33,13 @@ export const Medicamentos = () => {
                           {medicamentos.informacion}
                         </CardText>
                       </CardBody>
-                      <Button className="custom-button">Mas Información..</Button>
+                      <Button
+                       className="custom-button"
+                       onClick={() => window.location.href = medicamentos.link}
+                       >
+                       Mas Informacion...</Button> 
+                    
+                      
                     </Card>
                   </CardGroup>
                 </Col>
