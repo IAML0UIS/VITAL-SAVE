@@ -1,53 +1,27 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import {
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Container,
-  Collapse,
-  Button
-} from "reactstrap";
-import { FaSignOutAlt } from 'react-icons/fa';
-
+import { useDispatch } from "react-redux";
 import routes from "../routes";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { starLogout } from "../store/auth/thunks";
+import { useLocation } from "react-router-dom";
+import { Navbar, NavbarBrand, Container, Button, Input } from "reactstrap";
+import { FaSignOutAlt } from 'react-icons/fa';
+
+
+
 
 export const DemoNavbar = (props) => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const dispatch = useDispatch()
-
-  const handleSearch = (event) => {
-    event.preventDefault();
-    console.log('Buscando:', searchTerm);
-  };
-
-  
+ 
+  const dispatch = useDispatch()  
   const onLogout = () => {
     dispatch( starLogout() );
   }
 
-
-
-
-
-  const [isOpen, setIsOpen] = useState(false);
   const [color, setColor] = useState("transparent");
   const sidebarToggle = React.useRef();
   const location = useLocation();
 
 
-  const toggle = () => {
-    if (isOpen) {
-      setColor("transparent");
-    } else {
-      setColor("dark");
-    }
-    setIsOpen(!isOpen);
-  };
-  
   const getBrand = () => {
     let brandName = "Default Brand";
     routes.map((prop, key) => {
@@ -62,28 +36,6 @@ export const DemoNavbar = (props) => {
     document.documentElement.classList.toggle("nav-open");
     sidebarToggle.current.classList.toggle("toggled");
   };
-  const updateColor = () => {
-    if (window.innerWidth < 993 && isOpen) {
-      setColor("dark");
-    } else {
-      setColor("transparent");
-    }
-  };
-  React.useEffect(() => {
-    window.addEventListener("resize", updateColor.bind(this));
-  });
-  React.useEffect(() => {
-    if (
-      window.innerWidth < 993 &&
-      document.documentElement.className.indexOf("nav-open") !== -1
-    ) {
-      document.documentElement.classList.toggle("nav-open");
-      sidebarToggle.current.classList.toggle("toggled");
-    }
-  }, [location]);
-
-
-
   
   return (
     
@@ -113,17 +65,19 @@ export const DemoNavbar = (props) => {
               <span className="navbar-toggler-bar bar3" />
             </button>
           </div>
-          <NavbarBrand href="/">{getBrand()}
-          </NavbarBrand>
-          <Collapse isOpen={isOpen} navbar className="justify-content-end">
-            <Button color="danger" onClick={ onLogout }>
-              <FaSignOutAlt style={{ marginRight: '6px' }} />
-              Logout
-            </Button>
-          </Collapse>
-          <NavbarToggler onClick={toggle}> </NavbarToggler>                   
+         
         </div>
       </Container>
+        <div>
+            <Input
+            />
+        </div>
+      <NavbarBrand href="/">{getBrand()}
+          </NavbarBrand>
+          <Button color="danger" onClick={ onLogout }>
+                <FaSignOutAlt style={{ marginRight: '6px' }} />
+                Logout
+          </Button>
     </Navbar>
   );
 };

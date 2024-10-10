@@ -22,17 +22,17 @@
         }
     }
 
-    .card-header{
-      &:not([data-background-color]){
-        background-color: transparent;
-      }
-      padding: 15px 15px 0;
-      border: 0;
+    // .card-header{
+    //   &:not([data-background-color]){
+    //     background-color: transparent;
+    //   }
+    //   padding: 15px 15px 0;
+    //   border: 0;
 
-      .card-title{
-          margin-top: 10px;
-      }
-    }
+    //   .card-title{
+    //       margin-top: 10px;
+    //   }
+    // }
 
     .map{
         border-radius: $border-radius-small;

@@ -4,7 +4,7 @@ import { Col, CardBody, Card, } from "reactstrap";
 
 export const Usuario = () => {
 
-    const { displayName, photoURL } = useSelector( status => status.auth)
+    const { displayName, photoURL, status } = useSelector( status => status.auth)
   return (
     <>
         <div className="content">
@@ -26,7 +26,7 @@ export const Usuario = () => {
                         <strong>
                             usuario:
                         </strong>
-                    <small> @soyEder</small>
+                    <small>{ status }</small>
                     </h6>
                 </CardBody>
                 </Card>

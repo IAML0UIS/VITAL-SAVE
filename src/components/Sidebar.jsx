@@ -6,7 +6,6 @@ var ps;
 
 export const Sidebar = (props) => {
 
-  
   const location = useLocation();
   const sidebar = React.useRef();
 
@@ -38,14 +37,14 @@ export const Sidebar = (props) => {
       data-active-color={props.activeColor}
     >
       <div className="logo">
-        <a
-          href="https://www.creative-tim.com"
+        <NavLink
+          to='/inicio/vitalsave'
           className="simple-text logo-mini"
         >
-          <div className="logo-img">
+          <NavLink className="logo-img">
             <img src={ logoVitalSave } alt="VitalSave" />
-          </div>
-        </a>
+          </NavLink>
+        </NavLink>
         <a href="#"
         
           className="simple-text logo-normal"
@@ -76,4 +75,4 @@ export const Sidebar = (props) => {
   );
 }
 
-export default Sidebar;
+
