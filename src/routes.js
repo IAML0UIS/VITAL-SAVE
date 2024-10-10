@@ -50,8 +50,8 @@ const routes = [
     layout: "/inicio",
   },
   {
-    path: "/emergencia",
-    name: "emergencia",
+    path: "/Emergencia",
+    name: "Emergencia",
     icon: "nc-icon nc-ambulance",
     component: Emergencia,
     layout: "/inicio",
@@ -63,5 +63,10 @@ const routes = [
     component: Usuario,
     layout: "/inicio",
   },
+  // routes.js o donde lo necesites
+ 
+
+// Usa Emergencia donde sea necesario.
+
 ];
 export default routes;
